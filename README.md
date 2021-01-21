@@ -27,8 +27,8 @@ size_id
 | name             | string     | null: false       |
 | explanation      | text       | null: false       |
 | price            | integer    | null: false       |
-| size_id          | integer     | null: false      |
-| brand_id         | integer    | null: false       |
+| size             | integer    | null: false      |
+| brand            | string    | null: false       |
 | item_state_id    | integer    | null: false       |
 | fee_id           | integer    | null: false       |
 | prefecture_id    | integer    | null: false       |

@@ -1,0 +1,74 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">My Sneakerを出品する</h2>
+        <%# 部分テンプレートでフォームを表示する %>
+
+        <%= form_with local: true do |f|%>
+        <div class="field">
+          <%= f.label :hoge, "商品の画像" %><br />
+          <%= f.file_field :hoge %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :hoge, "商品のブランド" %><br />
+          <%= f.text_field :hoge %>
+        </div>
+
+        <div class="field">
+          <%= f.label :hoge, "商品説明" %><br />
+          <%= f.text_area :hoge, class: :form__text %>
+        </div>
+
+        <div class="field">
+          Size 
+          <%= f.collection_select(:size_id, Size.all, :id, :name, {}, {class:"select-box"}) %>
+          </div>
+
+         <div class="field">
+          商品の状態 
+          <%= f.collection_select(:item_state_id, ItemState.all, :id, :name, {}, {class:"select-box_2"}) %>
+          </div>
+
+          <div class="field">
+          発送元 
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box"}) %>
+          </div>
+        
+
+      <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>販売価格<br>(¥300〜9,999,999)</span>
+      </div>
+      <div class="box">
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+            <span class="sell-yen">¥</span>
+            <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          </div>
+          <div class="price-content">
+            <span>販売手数料 (10%)</span>
+            <span>
+            <span id='add-tax-price'></span>円
+            </span>
+          </div>
+          <div class="price-content">
+            <span>販売利益</span>
+            <span>
+              <span id='profit'></span>円
+          </div>
+          </span>
+        </div>
+       </div>
+      </div>
+
+         <div class="actions">
+           <%= f.submit "出品する", class: :form__btn  %>
+         </div>
+        <% end %>
+    </div>
+  </div>
+</div>
